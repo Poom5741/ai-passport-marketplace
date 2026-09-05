@@ -1,0 +1,26 @@
+{
+  "name": "ai-passport-marketplace",
+  "compatibility_date": "2024-01-01",
+  "pages_build_output_dir": ".next",
+  "main": "",
+  "assets": ".next",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ai-passport-db",
+      "database_id": "${CLOUDFLARE_D1_DATABASE_ID}"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "UPLOADS",
+      "bucket_name": "ai-passport-uploads"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "RATE_LIMIT",
+      "id": "${CLOUDFLARE_KV_RATE_LIMIT_ID}"
+    }
+  ]
+}

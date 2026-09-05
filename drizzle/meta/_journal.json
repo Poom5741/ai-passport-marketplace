@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 1,
+      "version": "1",
+      "dialect": "sqlite",
+      "id": "001-initial",
+      "prevId": "0000-initial",
+      "breakpoints": false
+    }
+  ]
+}

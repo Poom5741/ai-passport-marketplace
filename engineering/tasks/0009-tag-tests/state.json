@@ -1,0 +1,14 @@
+{
+  "task": "0009-tag-tests",
+  "title": "Tag normalization tests",
+  "role": "lead",
+  "mode": { "agents": "single", "loop": "step", "commits": "gate" },
+  "phases": {
+    "define":    { "status": "done", "validated": true,  "approved": true,  "artifact": "spec.md" },
+    "blueprint": { "status": "done", "validated": true,  "approved": true,  "artifact": "plan.md" },
+    "construct": { "status": "done", "validated": true,  "approved": true,  "artifact": null },
+    "verify":    { "status": "done", "validated": true,  "approved": true,  "artifact": null },
+    "inspect":   { "status": "todo", "validated": false, "approved": false, "artifact": null },
+    "release":   { "status": "todo", "validated": false, "approved": false, "artifact": null }
+  }
+}
