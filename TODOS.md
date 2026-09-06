@@ -9,8 +9,8 @@
 ## Auth (T3)
 - [x] T3: bcrypt cost 10 — **Done** in scaffold: `lib/auth.ts` already uses cost 10
 
-## Upload (T4) — NEXT, UNBLOCKED
-- [ ] T4: Worker proxy upload — **Unblocked** (R2 path): add `/api/files/[key]` R2 delivery route, wire `screenshotUrl = /api/files/{key}`, harden Worker (image/* only, streaming)
+## Upload (T4)
+- [x] T4: ~~Worker proxy upload~~ — **Done**: `POST /api/upload` + `GET /api/files/[key]` in-app routes, R2 streaming, image/* only, 5MB limit. Old `workers/` removed.
 
 ## Analytics (T5)
 - [x] T5: waitUntil view counts — **Done** in `src/app/api/projects/[id]/route.ts` + `src/app/api/users/[id]/route.ts`
@@ -32,5 +32,6 @@
 - T9 ✅ (scaffold) — tags.test.ts: all normalization cases covered
 
 ## Next up
-1. T4 (R2 path) — see `docs/implementation/tickets/t4-worker-proxy-upload.md`
-2. Frontend pages (`/register`, `/projects/new`, profile) — required before T8 E2E can run
+1. Deploy to Cloudflare Pages (requires Cloudflare account + D1 migration)
+2. Profile editing UI (bio, avatar upload)
+3. Comments/reactions, full-text search
