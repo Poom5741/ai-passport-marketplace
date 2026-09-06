@@ -3,7 +3,7 @@ parent: docs/eng-review-plan.md
 labels: [implementation, task]
 task_id: T1
 created: 2026-09-05
-state: open
+state: closed
 estimate_human: ~1h
 estimate_cc: ~10min
 surfaced_by: A1 (Cloudflare Images decision)
@@ -36,3 +36,11 @@ Upload a test image, check 400px and 1200px variants appear in Cloudflare Images
 ## Dependencies
 
 - None (greenfield)
+
+## CLOSED 2026-09-06 — decision: keep R2
+
+Poom decided NOT to adopt Cloudflare Images (Hosted Images requires a paid
+subscription; see `HANDOFF-T1-CLOUDFLARE-IMAGES.md`). Images stay in R2 via the
+existing `UPLOADS` binding. Delivery is handled by an app route
+(`/api/files/[key]`) instead of `imagedelivery.net`. T4 is now unblocked and
+stores R2 URLs in D1. This ticket is intentionally obsolete — do not implement.

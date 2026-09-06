@@ -7,17 +7,12 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-  "services": [
-    {
-      "binding": "WORKER_SELF_REFERENCE",
-      "service": "ai-passport-marketplace"
-    }
-  ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "ai-passport-db",
-      "database_id": "6c00d452-7454-4c89-8a25-3e4904069812"
+      "database_id": "6c00d452-7454-4c89-8a25-3e4904069812",
+      "migrations_dir": "drizzle/migrations"
     }
   ],
   "r2_buckets": [

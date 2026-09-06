@@ -89,6 +89,30 @@ describe('POST /api/projects', () => {
     expect(res.status).toBe(400);
   });
 
+  it('returns 400 when repoUrl is invalid', async () => {
+    const { POST } = await import('@/app/api/projects/route');
+    const res = await POST(
+      makePostRequest({ title: 'My Project', description: 'Desc', repoUrl: 'not-a-url' }),
+    );
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error).toContain('repo');
+  });
+
+  it('returns 201 with repoUrl when valid', async () => {
+    const { POST } = await import('@/app/api/projects/route');
+    const res = await POST(
+      makePostRequest({
+        title: 'My AI Project',
+        description: 'Built with LLMs',
+        repoUrl: 'https://github.com/user/repo',
+      }),
+    );
+    expect(res.status).toBe(201);
+    const body = await res.json();
+    expect(body.project.repoUrl).toBe('https://github.com/user/repo');
+  });
+
   it('returns 201 with project object on valid submission', async () => {
     const { POST } = await import('@/app/api/projects/route');
     const res = await POST(

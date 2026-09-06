@@ -1,0 +1,90 @@
+{
+  "common": {
+    "allProjects": "All projects",
+    "loading": "Loading...",
+    "views": "views",
+    "noScreenshot": "No screenshot",
+    "joinUs": "Join us in building the future of AI.",
+    "copyright": "AI Passport Marketplace. All rights reserved."
+  },
+  "nav": {
+    "logo": "AI Passport",
+    "feed": "Feed",
+    "submitProject": "Submit Project",
+    "signIn": "Sign In",
+    "myProfile": "My Profile",
+    "signOut": "Sign Out"
+  },
+  "feed": {
+    "title": "AI Passport Marketplace",
+    "subtitle": "Discover AI projects built by the community",
+    "sort": "Sort:",
+    "newest": "Newest",
+    "mostViewed": "Most viewed",
+    "noProjects": "No projects yet",
+    "noProjectsTag": "No projects found with the tag \"{tag}\".",
+    "beFirst": "Be the first to share an AI project.",
+    "loadMore": "Load more",
+    "loadingMore": "Loading..."
+  },
+  "project": {
+    "liveDemo": "Live demo",
+    "repository": "Repository"
+  },
+  "profile": {
+    "projects": "Projects",
+    "noProjects": "No projects yet.",
+    "joined": "Joined"
+  },
+  "submit": {
+    "title": "Submit a Project",
+    "titleField": "Title",
+    "descriptionField": "Description",
+    "descriptionPlaceholder": "Describe your project...",
+    "screenshotField": "Screenshot",
+    "screenshotHint": "Optional. PNG, JPEG, or WebP. Max 5MB.",
+    "screenshotUpload": "Click to upload a screenshot",
+    "screenshotPreview": "Screenshot preview",
+    "removeScreenshot": "Remove screenshot",
+    "uploading": "Uploading...",
+    "tagsField": "Tags",
+    "tagsHint": "Optional. Comma-separated, max 10.",
+    "liveUrlField": "Live URL",
+    "repoUrlField": "Repository URL",
+    "repoUrlHint": "Optional.",
+    "submitting": "Submitting...",
+    "submitProject": "Submit Project"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Register",
+      "errorMissing": "Email and password are required",
+      "errorInvalid": "Invalid email or password",
+      "errorRateLimit": "Too many login attempts. Please try again later.",
+      "errorGeneric": "Something went wrong. Please try again."
+    },
+    "register": {
+      "title": "Create Account",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "displayNameLabel": "Display Name",
+      "submit": "Register",
+      "submitting": "Creating account...",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in",
+      "emailHint": "Must end with @ai-passport.go.th",
+      "passwordHint": "Minimum 8 characters",
+      "errorDuplicate": "This email is already registered",
+      "errorDomain": "Registration is only open to @ai-passport.go.th email addresses",
+      "errorPassword": "Password must be at least 8 characters",
+      "errorDisplayName": "Display name is required",
+      "errorGeneric": "Something went wrong. Please try again."
+    }
+  }
+}

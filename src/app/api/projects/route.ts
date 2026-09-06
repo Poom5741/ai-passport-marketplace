@@ -85,6 +85,7 @@ export async function POST(request: NextRequest) {
     title?: string;
     description?: string;
     liveUrl?: string;
+    repoUrl?: string;
     screenshotUrl?: string;
     tags?: unknown[];
   };
@@ -94,7 +95,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const { title, description, liveUrl, screenshotUrl, tags } = body;
+  const { title, description, liveUrl, repoUrl, screenshotUrl, tags } = body;
 
   if (!title || title.trim().length === 0) {
     return NextResponse.json({ error: 'Title is required' }, { status: 400 });
@@ -111,6 +112,14 @@ export async function POST(request: NextRequest) {
       new URL(liveUrl);
     } catch {
       return NextResponse.json({ error: 'Invalid live URL format' }, { status: 400 });
+    }
+  }
+
+  if (repoUrl) {
+    try {
+      new URL(repoUrl);
+    } catch {
+      return NextResponse.json({ error: 'Invalid repo URL format' }, { status: 400 });
     }
   }
 
@@ -136,6 +145,7 @@ export async function POST(request: NextRequest) {
     title: title.trim(),
     description: description.trim(),
     liveUrl: liveUrl ?? null,
+    repoUrl: repoUrl ?? null,
     screenshotUrl: screenshotUrl ?? null,
     viewCount: 0,
     createdAt: now,
@@ -154,6 +164,7 @@ export async function POST(request: NextRequest) {
         title: title.trim(),
         description: description.trim(),
         liveUrl,
+        repoUrl,
         screenshotUrl,
         tags: normalizedTags,
         viewCount: 0,

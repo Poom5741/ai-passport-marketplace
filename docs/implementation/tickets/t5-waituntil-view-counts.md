@@ -3,7 +3,7 @@ parent: docs/eng-review-plan.md
 labels: [implementation, task]
 task_id: T5
 created: 2026-09-05
-state: open
+state: done
 estimate_human: ~1h
 estimate_cc: ~10min
 surfaced_by: P2 (fire-and-forget view counting)

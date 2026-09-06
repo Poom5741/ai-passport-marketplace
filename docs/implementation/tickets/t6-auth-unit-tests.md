@@ -3,7 +3,7 @@ parent: docs/eng-review-plan.md
 labels: [implementation, task, testing]
 task_id: T6
 created: 2026-09-05
-state: open
+state: done
 estimate_human: ~3h
 estimate_cc: ~20min
 surfaced_by: Test coverage diagram — auth flows all GAP

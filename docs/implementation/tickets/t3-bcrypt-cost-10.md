@@ -3,7 +3,7 @@ parent: docs/eng-review-plan.md
 labels: [implementation, task]
 task_id: T3
 created: 2026-09-05
-state: open
+state: done
 estimate_human: ~1h
 estimate_cc: ~5min
 surfaced_by: A4 (bcrypt cost decision)

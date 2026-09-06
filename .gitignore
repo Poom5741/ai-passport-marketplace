@@ -50,3 +50,7 @@ dist/
 # Test artifacts
 test-results/
 playwright-report/
+
+# Tool state
+.mimosa/
+.open-next/

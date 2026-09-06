@@ -70,10 +70,11 @@ export async function POST(request: NextRequest) {
   });
 
   const token = await signJWT({ sub: userId, email: email.toLowerCase() });
+  const proto = request.headers.get('x-forwarded-proto') ?? 'http';
   const response = new NextResponse(null, { status: 201 });
   response.cookies.set(COOKIE_NAME, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: proto === 'https',
     sameSite: 'lax',
     maxAge: 60 * 60 * 24 * 7,
     path: '/',

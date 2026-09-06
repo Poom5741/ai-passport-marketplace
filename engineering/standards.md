@@ -1,43 +1,14 @@
----
-name: ai-passport-marketplace-standards
-description: Coding standards for AI Passport Marketplace
-created: 2026-09-05
----
+# Standards — AI Passport Marketplace
 
-## Stack
-
-Language:     TypeScript
-Runtime:      Cloudflare Workers / Pages (Next.js adapter)
-Database:     D1 (SQLite edge)
-Storage:      R2 + Cloudflare Images
-Test runner:  Bun (`bun test`)
-E2E runner:   Playwright (`npx playwright test`)
-Linter:       ESLint
-Formatter:    Prettier
-
-## Conventions
-
-- Route files: `app/api/<resource>/route.ts` (Next.js App Router)
-- Auth helpers: `lib/auth.ts` (JWT sign/verify, bcrypt hash)
-- DB helpers: `lib/d1.ts` (parameterized queries)
-- Tag normalization: `lib/tags.ts` (`normalizeTags()`)
-- Upload Worker: `workers/upload/index.ts`
-- Migration files: `drizzle/migrations/`
-- Schema: `drizzle/schema.ts`
-- Test files: co-located with source as `*.test.ts`
-- E2E tests: `tests/e2e/<flow>.spec.ts`
-
-## Domain Terms
-
-- `project_tags` — join table (project_id, tag) with index on tag
-- `waitUntil` — Cloudflare Workers fire-and-forget for non-blocking writes
-- presigned URL — R2 pre-authenticated URL (not applicable; Worker proxies uploads)
-- bcrypt cost 10 — OWASP minimum, fast enough for Workers 50ms CPU limit
-
-## Branch format
-
-`task/<ticket>` — e.g. `task/T1-cloudflare-images`
-
-## Commit format
-
-Conventional commits: `feat/`, `fix/`, `test/`, `docs/`
+Stack:           Next.js 16 App Router, React 19, TypeScript, Tailwind CSS (zinc palette),
+                 Cloudflare Pages (OpenNext), D1 (SQLite), R2, KV, Drizzle ORM, bcryptjs, jose JWT
+Test tooling:    Vitest (unit), Playwright (E2E)
+Conventions:     App Router file-based routing, src/app/api/ for API routes,
+                 src/lib/ for shared utilities, src/drizzle/schema.ts for DB schema,
+                 error responses { error: string }, consistent use of getSession() for auth,
+                 getCloudflareEnv() + createDB() for DB access
+Branch format:   main (direct commits for now)
+Commit format:   conventional commits (feat:, fix:, chore:)
+Copy source:     bilingual (EN/TH) via [locale] segment — TBD (rc-1 research)
+Domain terms:    project = a learner submitted AI project; tag = normalized lowercase label;
+                 view_count = deduplicated per IP+UA per hour; repo_url = optional GitHub link

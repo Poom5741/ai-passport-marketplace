@@ -1,0 +1,90 @@
+{
+  "common": {
+    "allProjects": "โปรเจกต์ทั้งหมด",
+    "loading": "กำลังโหลด...",
+    "views": "ครั้งที่ดู",
+    "noScreenshot": "ไม่มีภาพหน้าจอ",
+    "joinUs": "ร่วมสร้างอนาคตของ AI กับเรา",
+    "copyright": "AI Passport Marketplace สงวนลิขสิทธิ์ทุกประการ"
+  },
+  "nav": {
+    "logo": "AI Passport",
+    "feed": "ฟีด",
+    "submitProject": "ส่งโปรเจกต์",
+    "signIn": "เข้าสู่ระบบ",
+    "myProfile": "โปรไฟล์ของฉัน",
+    "signOut": "ออกจากระบบ"
+  },
+  "feed": {
+    "title": "AI Passport Marketplace",
+    "subtitle": "ค้นพบโปรเจกต์ AI ที่ชุมชนสร้างขึ้น",
+    "sort": "เรียง:",
+    "newest": "ล่าสุด",
+    "mostViewed": "ดูมากที่สุด",
+    "noProjects": "ยังไม่มีโปรเจกต์",
+    "noProjectsTag": "ไม่พบโปรเจกต์ที่มีแท็ก \"{tag}\"",
+    "beFirst": "เป็นคนแรกที่แชร์โปรเจกต์ AI",
+    "loadMore": "โหลดเพิ่มเติม",
+    "loadingMore": "กำลังโหลด..."
+  },
+  "project": {
+    "liveDemo": "ทดลองใช้",
+    "repository": "คลังเก็บโค้ด"
+  },
+  "profile": {
+    "projects": "โปรเจกต์",
+    "noProjects": "ยังไม่มีโปรเจกต์",
+    "joined": "เข้าร่วมเมื่อ"
+  },
+  "submit": {
+    "title": "ส่งโปรเจกต์",
+    "titleField": "ชื่อ",
+    "descriptionField": "คำอธิบาย",
+    "descriptionPlaceholder": "อธิบายโปรเจกต์ของคุณ...",
+    "screenshotField": "ภาพหน้าจอ",
+    "screenshotHint": "ไม่บังคับ PNG, JPEG หรือ WebP ขนาดไม่เกิน 5MB",
+    "screenshotUpload": "คลิกเพื่ออัปโหลดภาพหน้าจอ",
+    "screenshotPreview": "ตัวอย่างภาพหน้าจอ",
+    "removeScreenshot": "ลบภาพหน้าจอ",
+    "uploading": "กำลังอัปโหลด...",
+    "tagsField": "แท็ก",
+    "tagsHint": "ไม่บังคับ คั่นด้วยจุลภาค สูงสุด 10",
+    "liveUrlField": "URL ของโปรเจกต์",
+    "repoUrlField": "URL คลังเก็บโค้ด",
+    "repoUrlHint": "ไม่บังคับ",
+    "submitting": "กำลังส่ง...",
+    "submitProject": "ส่งโปรเจกต์"
+  },
+  "auth": {
+    "login": {
+      "title": "เข้าสู่ระบบ",
+      "emailLabel": "อีเมล",
+      "passwordLabel": "รหัสผ่าน",
+      "submit": "เข้าสู่ระบบ",
+      "submitting": "กำลังเข้าสู่ระบบ...",
+      "noAccount": "ยังไม่มีบัญชี?",
+      "registerLink": "สมัครสมาชิก",
+      "errorMissing": "กรุณากรอกอีเมลและรหัสผ่าน",
+      "errorInvalid": "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
+      "errorRateLimit": "พยายามเข้าสู่ระบบมากเกินไป กรุณาลองใหม่ภายหลัง",
+      "errorGeneric": "เกิดข้อผิดพลาด กรุณาลองใหม่"
+    },
+    "register": {
+      "title": "สร้างบัญชี",
+      "emailLabel": "อีเมล",
+      "passwordLabel": "รหัสผ่าน",
+      "displayNameLabel": "ชื่อที่แสดง",
+      "submit": "สมัครสมาชิก",
+      "submitting": "กำลังสร้างบัญชี...",
+      "hasAccount": "มีบัญชีอยู่แล้ว?",
+      "loginLink": "เข้าสู่ระบบ",
+      "emailHint": "ต้องลงท้ายด้วย @ai-passport.go.th",
+      "passwordHint": "อย่างน้อย 8 ตัวอักษร",
+      "errorDuplicate": "อีเมลนี้ถูกลงทะเบียนแล้ว",
+      "errorDomain": "การลงทะเบียนเปิดให้เฉพาะอีเมล @ai-passport.go.th เท่านั้น",
+      "errorPassword": "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
+      "errorDisplayName": "กรุณากรอกชื่อที่แสดง",
+      "errorGeneric": "เกิดข้อผิดพลาด กรุณาลองใหม่"
+    }
+  }
+}

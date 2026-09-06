@@ -38,4 +38,20 @@ Upload a 5MB test file. Worker memory stays under 128MB. Response time < 5s. Fil
 
 ## Dependencies
 
-- T1 (Cloudflare Images configured first)
+- T1 — CLOSED: decision 2026-09-06 is to keep R2 (no Cloudflare Images, no
+  subscription, no API token). Updated for the R2 path:
+  - Step 4 changes: store the **R2 delivery URL** (`/api/files/{key}` via the
+    app's R2 streaming route) in D1 — NOT a Cloudflare Images URL.
+  - Variant creation is dropped; if resize-on-delivery is ever needed, revisit
+    Image Transformations once the app has a custom domain.
+- No dashboard/account setup is required for this ticket anymore.
+
+## Remaining implementation (2026-09-06)
+
+1. `src/app/api/files/[key]/route.ts` — stream objects from the `UPLOADS` R2
+   binding with stored `httpMetadata.contentType` (works on `*.workers.dev`,
+   no public bucket needed).
+2. Wire client upload response `{key}` → `screenshotUrl = /api/files/{key}`
+   into `projects.screenshot_url` (and `users.avatar_url` for avatars).
+3. Worker hardening: allow only `image/*`, keep the 5MB cap; switch
+   `arrayBuffer()` → `ReadableStream` passthrough per the memory budget above.
