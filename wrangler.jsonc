@@ -1,24 +1,42 @@
 {
   "name": "ai-passport-marketplace",
-  "compatibility_date": "2024-01-01",
-  "pages_build_output_dir": ".next",
+  "compatibility_date": "2024-09-23",
+  "main": ".open-next/worker.js",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "ai-passport-marketplace"
+    }
+  ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "ai-passport-db",
-      "database_id": "${CLOUDFLARE_D1_DATABASE_ID}"
+      "database_id": "6c00d452-7454-4c89-8a25-3e4904069812"
     }
   ],
   "r2_buckets": [
     {
       "binding": "UPLOADS",
       "bucket_name": "ai-passport-uploads"
+    },
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "ai-passport-marketplace-cache"
     }
   ],
   "kv_namespaces": [
     {
       "binding": "RATE_LIMIT",
-      "id": "${CLOUDFLARE_KV_RATE_LIMIT_ID}"
+      "id": "890f499cdc684c4680e5b083aa803965"
     }
-  ]
+  ],
+  "images": {
+    "binding": "IMAGES"
+  }
 }

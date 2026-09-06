@@ -23,6 +23,10 @@ export interface CloudflareEnv {
 declare const __env__: any;
 
 export function getCloudflareEnv(): CloudflareEnv {
+  // Cloudflare Workers runtime: env is stored in AsyncLocalStorage (cloudflareContextALS).
+  // It is NOT on __env__ or globalThis.env (those don't exist in Workers).
+  const cloudflareEnv = (globalThis as Record<string, unknown>)[Symbol.for('__cloudflare-env__') as unknown as string];
+  if (cloudflareEnv) return cloudflareEnv as CloudflareEnv;
   if (typeof __env__ !== 'undefined') return __env__;
   if (typeof (globalThis as unknown as { env?: CloudflareEnv }).env !== 'undefined') {
     return (globalThis as unknown as { env: CloudflareEnv }).env;
