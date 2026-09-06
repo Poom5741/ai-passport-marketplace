@@ -77,12 +77,6 @@ export function AuthNav({ locale, dict }: AuthNavProps) {
   return (
     <div className="flex items-center gap-3">
       <a
-        href={`/${locale}/projects/new`}
-        className="inline-flex items-center rounded-lg bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
-      >
-        {dict.nav.submitProject}
-      </a>
-      <a
         href={`/${locale}/login`}
         className="text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
       >

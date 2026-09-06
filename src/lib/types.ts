@@ -35,6 +35,7 @@ export interface UserProfile {
   displayName: string;
   bio: string | null;
   avatarUrl: string | null;
+  profileViewCount: number;
   createdAt: string;
 }
 

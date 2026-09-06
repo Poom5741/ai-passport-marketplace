@@ -107,12 +107,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Description is required' }, { status: 400 });
   }
 
-  if (liveUrl) {
-    try {
-      new URL(liveUrl);
-    } catch {
-      return NextResponse.json({ error: 'Invalid live URL format' }, { status: 400 });
-    }
+  if (!liveUrl || liveUrl.trim().length === 0) {
+    return NextResponse.json({ error: 'Live URL is required' }, { status: 400 });
+  }
+  try {
+    new URL(liveUrl);
+  } catch {
+    return NextResponse.json({ error: 'Invalid live URL format' }, { status: 400 });
   }
 
   if (repoUrl) {

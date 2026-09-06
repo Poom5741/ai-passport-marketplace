@@ -24,9 +24,11 @@ interface FieldErrors {
   submit?: string;
 }
 
-export function ProjectForm() {
+export function ProjectForm({ dict }: { dict?: Record<string, unknown> }) {
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const t = (dict as any)?.submit ?? {};
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -219,7 +221,7 @@ export function ProjectForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
       {/* Title */}
-      <FieldGroup label="Title" htmlFor="title" required error={errors.title}>
+      <FieldGroup label={t.titleField ?? "Title"} htmlFor="title" required error={errors.title}>
         <input
           id="title"
           type="text"
@@ -235,7 +237,7 @@ export function ProjectForm() {
       </FieldGroup>
 
       {/* Description */}
-      <FieldGroup label="Description" htmlFor="description" required error={errors.description}>
+      <FieldGroup label={t.descriptionField ?? "Description"} htmlFor="description" required error={errors.description}>
         <textarea
           id="description"
           maxLength={DESCRIPTION_MAX}
@@ -252,10 +254,10 @@ export function ProjectForm() {
 
       {/* Screenshot */}
       <FieldGroup
-        label="Screenshot"
+        label={t.screenshotField ?? "Screenshot"}
         htmlFor="screenshot"
         error={errors.screenshot}
-        hint="Optional. PNG, JPEG, or WebP. Max 5MB."
+        hint={t.screenshotHint ?? "Optional. PNG, JPEG, or WebP. Max 5MB."}
       >
         <div className="flex flex-col gap-3">
           {screenshotPreview ? (
@@ -271,7 +273,7 @@ export function ProjectForm() {
                 onClick={removeScreenshot}
                 disabled={uploading || submitting}
                 className="absolute top-2 right-2 rounded-full bg-black/60 text-white p-1 hover:bg-black/80 transition-colors disabled:opacity-50"
-                aria-label="Remove screenshot"
+                aria-label={t.removeScreenshot ?? "Remove screenshot"}
               >
                 <svg className="h-4 w-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M2 2l8 8M10 2l-8 8" />
@@ -279,7 +281,7 @@ export function ProjectForm() {
               </button>
               {uploading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-md">
-                  <span className="text-white text-sm font-medium">Uploading...</span>
+                  <span className="text-white text-sm font-medium">{t.uploading ?? 'Uploading...'}</span>
                 </div>
               )}
             </div>
@@ -292,7 +294,7 @@ export function ProjectForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
               </svg>
               <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                Click to upload a screenshot
+                {t.screenshotUpload ?? "Click to upload a screenshot"}
               </span>
             </label>
           )}
@@ -309,12 +311,12 @@ export function ProjectForm() {
       </FieldGroup>
 
       {/* Tags */}
-      <FieldGroup label="Tags" htmlFor="tags" error={errors.tags} hint="Optional. Comma-separated, max 10.">
+      <FieldGroup label={t.tagsField ?? "Tags"} htmlFor="tags" error={errors.tags} hint={t.tagsHint ?? "Optional. Comma-separated, max 10."}>
         <TagInput tags={tags} onChange={setTags} disabled={submitting} />
       </FieldGroup>
 
       {/* Live URL */}
-      <FieldGroup label="Live URL" htmlFor="liveUrl" required error={errors.liveUrl}>
+      <FieldGroup label={t.liveUrlField ?? "Live URL"} htmlFor="liveUrl" required error={errors.liveUrl}>
         <input
           id="liveUrl"
           type="url"
@@ -328,7 +330,7 @@ export function ProjectForm() {
       </FieldGroup>
 
       {/* Repo URL */}
-      <FieldGroup label="Repository URL" htmlFor="repoUrl" error={errors.repoUrl} hint="Optional.">
+      <FieldGroup label={t.repoUrlField ?? "Repository URL"} htmlFor="repoUrl" error={errors.repoUrl} hint={t.repoUrlHint ?? "Optional."}>
         <input
           id="repoUrl"
           type="url"
@@ -357,7 +359,7 @@ export function ProjectForm() {
         disabled={submitting || uploading}
         className="w-full rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {submitting ? 'Submitting...' : 'Submit Project'}
+        {submitting ? (t.submitting ?? 'Submitting...') : (t.submitProject ?? 'Submit Project')}
       </button>
     </form>
   );

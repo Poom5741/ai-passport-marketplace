@@ -73,6 +73,7 @@ describe('POST /api/projects', () => {
       makePostRequest({
         title: 'My Project',
         description: 'Desc',
+        liveUrl: 'https://example.com',
         tags: Array.from({ length: 11 }, (_, i) => `tag${i}`),
       }),
     );
@@ -92,7 +93,7 @@ describe('POST /api/projects', () => {
   it('returns 400 when repoUrl is invalid', async () => {
     const { POST } = await import('@/app/api/projects/route');
     const res = await POST(
-      makePostRequest({ title: 'My Project', description: 'Desc', repoUrl: 'not-a-url' }),
+      makePostRequest({ title: 'My Project', description: 'Desc', liveUrl: 'https://example.com', repoUrl: 'not-a-url' }),
     );
     expect(res.status).toBe(400);
     const body = await res.json();
@@ -105,6 +106,7 @@ describe('POST /api/projects', () => {
       makePostRequest({
         title: 'My AI Project',
         description: 'Built with LLMs',
+        liveUrl: 'https://example.com',
         repoUrl: 'https://github.com/user/repo',
       }),
     );

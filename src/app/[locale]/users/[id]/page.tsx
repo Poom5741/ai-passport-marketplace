@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { UserProfileResponse } from "@/lib/types";
 import { ProjectCard } from "@/components/project-card";
+import { getDictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 
 function getInitials(name: string): string {
   return name
@@ -26,6 +28,7 @@ export default async function UserProfilePage({
   params: Promise<{ locale: string; id: string }>;
 }) {
   const { id, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   let data: UserProfileResponse;
   try {
@@ -51,7 +54,7 @@ export default async function UserProfilePage({
         href={`/${locale}`}
         className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
       >
-        &larr; All projects
+        &larr; {dict.common.allProjects}
       </Link>
 
       {/* Profile header */}
@@ -79,21 +82,26 @@ export default async function UserProfilePage({
             </p>
           )}
           <p className="mt-1 text-xs text-zinc-400 dark:text-zinc-500">
-            Joined {formatDate(user.createdAt)}
+            {dict.profile.joined} {formatDate(user.createdAt)}
           </p>
+          {user.profileViewCount !== undefined && (
+            <p className="mt-1 text-xs text-zinc-400 dark:text-zinc-500">
+              {user.profileViewCount.toLocaleString()} {dict.common.views}
+            </p>
+          )}
         </div>
       </div>
 
       {/* Projects section */}
       <section className="mt-8">
         <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-          Projects
+          {dict.profile.projects}
         </h2>
 
         {projects.length === 0 ? (
           <div className="mt-4 flex flex-col items-center justify-center rounded-lg border border-dashed border-zinc-300 py-12 dark:border-zinc-700">
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              No projects yet.
+              {dict.profile.noProjects}
             </p>
           </div>
         ) : (
