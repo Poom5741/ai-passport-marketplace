@@ -11,6 +11,7 @@
 | 7 | 0007-project-tests | Project submission tests | construct |
 | 8 | 0008-e2e-tests | E2E tests | construct |
 | 9 | 0009-tag-tests | Tag normalization tests | construct |
+| 10 | 0010-app-assessment | Whole-app health assessment | done |
 
 > Note: this is a greenfield scaffold. All code is written and unit tests pass.
 > inspect/release phases pending Cloudflare account setup and CI configuration.
